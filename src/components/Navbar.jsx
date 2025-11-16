@@ -52,7 +52,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30, delay: 0.2 }}
-        className="fixed top-4 left-4 right-4 z-50 w-[70vw] m-auto flex justify-between items-center p-5 rounded-xl shadow-lg
+        className="absolute top-4 left-4 right-4 z-50 w-[70vw] m-auto flex justify-between items-center p-5 rounded-xl shadow-lg
                    bg-white/30 backdrop-blur-lg border border-white/20"
       >
         <Link to="/" className="text-xl font-bold text-gray-500">
@@ -93,7 +93,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)} 
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[98]"
+              className="absolute inset-0 bg-black/50 backdrop-blur-sm z-[98]"
             />
 
             <motion.div
