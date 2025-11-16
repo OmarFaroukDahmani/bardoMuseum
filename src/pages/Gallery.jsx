@@ -1,12 +1,23 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React from 'react';
 import Transition from '../components/Transition'; 
+import ShuffleGrid from '../components/ShuffleGrid';
+import HorizontalScrollCarousel from "../components/HorizontalScrollCarousel";
 
 const images = [
   { id: 2, src: "/gallery/bardo300.jpg" },
   { id: 3, src: "/gallery/bardo301.jpg" },
   { id: 4, src: "/gallery/bardo312.jpg" },
   { id: 5, src: "/gallery/bardo305.jpg" },
+];
+
+
+const cards = [
+  { id: 1, url: "/gallery/appolon.jpg", title: "Apollon" },
+  { id: 2, url: "/gallery/bardo300.jpg", title: "Bardo" },
+  { id: 3, url: "/gallery/lion.jpg", title: "Lion" },
+  { id: 4, url: "/gallery/maison_maitre.jpg", title: "Maison" },
+  { id: 5, url: "/gallery/virgile.jpg", title: "Virgile" },
 ];
 
 const pageVariants = {
@@ -52,14 +63,12 @@ export default function Gallery() {
 
           <div className='relative h-screen w-full'>
 
-            <div className="absolute inset-0 z-10 grid place-content-center bg-gray-900">
-              <motion.h1 className='relative text-5xl font-black uppercase text-white'>
-                Show me on scroll
-              </motion.h1>
-            </div>
+          <div className="bg-black">
 
+          </div>
             <div className="absolute inset-0 z-20 grid grid-cols-4">
-              {images.map((image, index) => (                <div key={image.id} className="relative h-full w-full overflow-hidden">
+              {images.map((image, index) => (                
+                <div key={image.id} className="relative h-full w-full overflow-hidden">
                   <motion.img
                     src={image.src}
                     alt={`Gallery image ${image.id}`}
@@ -75,6 +84,7 @@ export default function Gallery() {
           </div>
         </div>
       </section>
+
     </motion.div>
   );
 }
