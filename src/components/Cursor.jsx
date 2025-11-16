@@ -8,7 +8,7 @@ export default function Cursor() {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
       gsap.to(cursorRef.current, {
-        x: clientX - 10, 
+        x: clientX - 10,   
         y: clientY - 10,
         duration: 0.25,
         ease: "power4.out",
