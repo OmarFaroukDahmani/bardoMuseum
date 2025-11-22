@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Transition from '../components/Transition'
 import Parallax from '../components/Parallax'
 
 export default function Test() {
@@ -18,8 +17,6 @@ export default function Test() {
   );
   return (
     <>
-      <Transition/>
-
       <Parallax curtainText={curtainContent} animationDistance={800} fullScreen={true}>
         {/* This is the 'children' prop */}
       <motion.section className='h-screen w-full bg-[url("/museum/inside.jpg")] bg-cover' >

@@ -12,6 +12,9 @@ import Visit from "./pages/Visit"
 // Component Imports
 import Navbar from './components/Navbar';
 import Cursor from './components/Cursor';
+import Test from './pages/Test';
+
+
 
 function App() {
   const location = useLocation();
@@ -30,6 +33,8 @@ function App() {
           <Route path="/gallery" element={<Gallery/>} />
           <Route path="/visit" element={<Visit/>} />
           <Route path="/contact" element={<Contact/>} />
+          
+          <Route path="/test" element={ <Test/> }/>
         </Routes>
       </AnimatePresence>
     </>
