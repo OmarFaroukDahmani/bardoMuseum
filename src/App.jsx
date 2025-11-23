@@ -6,13 +6,11 @@ import { AnimatePresence } from 'framer-motion';
 import Home from "./pages/Home"
 import Gallery from "./pages/Gallery"
 import Museum from "./pages/Museum"
-import Contact from "./pages/Contact"
 import Visit from "./pages/Visit"
 
 // Component Imports
 import Navbar from './components/Navbar';
 import Cursor from './components/Cursor';
-import Test from './pages/Test';
 
 
 
@@ -31,10 +29,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/museum" element={<Museum />} />
           <Route path="/gallery" element={<Gallery/>} />
-          <Route path="/visit" element={<Visit/>} />
-          <Route path="/contact" element={<Contact/>} />
-          
-          <Route path="/test" element={ <Test/> }/>
+          <Route path="/visit" element={<Visit/>} />          
         </Routes>
       </AnimatePresence>
     </>

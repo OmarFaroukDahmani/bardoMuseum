@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'; 
 import { motion } from "framer-motion";
-import { useScrollAnimation } from '../../useScrollAnimation'; // Adjust path if needed
+import { useScrollAnimation } from '../../useScrollAnimation'; 
 
 function Parallax({ children, curtainText, animationDistance = 600, fullScreen = false }) {
   const containerRef = useRef(null);
@@ -15,16 +15,11 @@ function Parallax({ children, curtainText, animationDistance = 600, fullScreen =
   return (
     <div className="relative" ref={containerRef}>
       
-      /* .sticky-animation-container */
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         
-        <div className="absolute inset-0 bg-white z-10 flex justify-center items-center">
+        <div className="absolute inset-0 bg-white z-10 flex justify-center items-center ">
           <div
-            className={`relative w-full will-change-transform ${
-              fullScreen 
-                ? 'max-w-full p-0 h-full' 
-                : 'max-w-[1100px] px-5'
-            }`}
+            className={`relative w-full will-change-transform`}
             style={{ transform: `translateY(${parallaxOffset}px)` }}
           >
             <motion.div

@@ -16,7 +16,6 @@ const navLinks = [
   { title: 'Museum', to: '/museum', icon: <Landmark size={18} /> },
   { title: 'Gallery', to: '/gallery', icon: <GalleryIcon size={18} /> },
   { title: 'Visit', to: '/visit', icon: <Ticket size={18} /> },
-  { title: 'Contact', to: '/contact', icon: <Mail size={18} /> },
 ];
 
 export default function Navbar() {
@@ -55,7 +54,7 @@ export default function Navbar() {
         className="absolute top-4 left-4 right-4 z-50 w-[70vw] m-auto flex justify-between items-center p-5 rounded-xl shadow-lg
                    bg-white/30 backdrop-blur-lg border border-white/20"
       >
-        <Link to="/" className="text-xl font-bold text-gray-500">
+        <Link to="/" className="text-lg font-bold text-gray-500">
           The National <span className='text-gray-900'>Bardo</span> Museum
         </Link>
 
