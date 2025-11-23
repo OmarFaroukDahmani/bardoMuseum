@@ -7,7 +7,6 @@ import {
   Landmark,
   Image as GalleryIcon,
   Ticket,
-  Mail
 } from 'lucide-react';
 
 const navLinks = [
@@ -20,12 +19,11 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-
   const mobileMenuVariants = {
     hidden: {
       opacity: 0,
       transition: {
-        when: "afterChildren", 
+        when: 'afterChildren',
         staggerChildren: 0.05,
         staggerDirection: -1,
       },
@@ -33,19 +31,24 @@ export default function Navbar() {
     visible: {
       opacity: 1,
       transition: {
-        when: "beforeChildren", 
-        staggerChildren: 0.1,  
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
       },
     },
   };
 
   const mobileLinkVariants = {
     hidden: { x: 50, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 300, damping: 30 } },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 300, damping: 30 },
+    },
   };
 
   return (
     <>
+      {/* Top Navbar */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -54,9 +57,10 @@ export default function Navbar() {
                    bg-white/30 backdrop-blur-lg border border-white/20"
       >
         <a href="/" className="text-lg font-bold text-gray-500">
-          The National <span className='text-gray-900'>Bardo</span> Museum
+          The National <span className="text-gray-900">Bardo</span> Museum
         </a>
 
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => (
             <a
@@ -90,10 +94,11 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)} 
+              onClick={() => setIsOpen(false)}
               className="absolute inset-0 bg-black/50 backdrop-blur-sm z-[98]"
             />
 
+            {/* Drawer */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -113,6 +118,7 @@ export default function Navbar() {
                 </motion.button>
               </div>
 
+              {/* Mobile Links */}
               <motion.ul
                 variants={mobileMenuVariants}
                 initial="hidden"
@@ -122,15 +128,15 @@ export default function Navbar() {
               >
                 {navLinks.map((link) => (
                   <motion.li key={link.title} variants={mobileLinkVariants}>
-                    <Link
-                      to={link.to}
-                      onClick={() => setIsOpen(false)} 
+                    <a
+                      href={link.to}
+                      onClick={() => setIsOpen(false)}
                       className="flex items-center gap-4 p-4 rounded-lg text-lg font-semibold text-gray-700
                                  hover:bg-gray-100 transition-colors w-full"
                     >
                       {link.icon}
                       <span>{link.title}</span>
-                    </Link>
+                    </a>
                   </motion.li>
                 ))}
               </motion.ul>
