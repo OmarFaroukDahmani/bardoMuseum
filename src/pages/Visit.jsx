@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Transition from '../components/Transition';
 import Parallax from '../components/Parallax';
 import { gsap } from 'gsap';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 export default function Visit() {
   const curtainContent = (

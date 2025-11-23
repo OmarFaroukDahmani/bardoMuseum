@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from 'gsap';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import Transition from '../components/Transition';
 
 const sections = [
