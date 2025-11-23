@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { gsap } from 'gsap'
-import bardoBg from '/BardoMuseum.mp4'
-import Transition from '../components/Transition' 
-
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { Helmet } from 'react-helmet-async';
+import bardoBg from '/BardoMuseum.mp4';
+import Transition from '../components/Transition';
 
 const pageVariants = {
   initial: {
     opacity: 0,
-    x: "20vw", 
+    x: "20vw",
   },
   in: {
     opacity: 1,
@@ -21,10 +21,9 @@ const pageVariants = {
 };
 
 const pageTransition = {
-  duration: 0.8, 
+  duration: 0.8,
   ease: "easeInOut"
 };
-
 
 export default function Home() {
   const images = [
@@ -34,7 +33,7 @@ export default function Home() {
     { title: "maison_maitre", src: "/gallery/maison_maitre.jpg" },
     { title: "virgile", src: "/gallery/virgile.jpg" },
     { title: "SeignorJulius", src: "/gallery/SeignorJulius.jpg" }
-  ]
+  ];
 
   const containerVariants = {
     hidden: {},
@@ -43,7 +42,7 @@ export default function Home() {
         staggerChildren: 0.3,
       },
     },
-  }
+  };
 
   const boxVariants = {
     hidden: (direction) => ({
@@ -63,7 +62,7 @@ export default function Home() {
       y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
       transition: { duration: 1.6, ease: "easeInOut" },
     }),
-  }
+  };
 
   return (
     <motion.div
@@ -73,11 +72,17 @@ export default function Home() {
       variants={pageVariants}
       transition={pageTransition}
     >
-      
+      <Helmet>
+        <title>Home | National Bardo Museum</title>
+        <meta 
+          name="description" 
+          content="Welcome to the National Bardo Museum in Tunisia. Explore the largest collection of mosaics, the 101 masterpieces, and our rich historical heritage." 
+        />
+      </Helmet>
+
       <Transition />
 
       <section className="relative min-h-screen w-full bg-black overflow-hidden">
-
         <div className="absolute inset-0 grid grid-cols-2 grid-rows-3 gap-2 p-4 md:grid-cols-3 md:grid-rows-2 md:gap-3 md:p-5">
           {images.map((img, index) => (
             <motion.img
@@ -110,7 +115,7 @@ export default function Home() {
             exit={{ opacity: 0, y: 40 }}
             transition={{ duration: 3, ease: "easeOut" }}
             viewport={{ once: false, amount: 0.5 }}
-            className="text-white font-extrabold text-center  sm:text-4xl md:text-6xl tracking-normal md:tracking-wide uppercase z-20"
+            className="text-white font-extrabold text-center sm:text-4xl md:text-6xl tracking-normal md:tracking-wide uppercase z-20"
             onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
             onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
           >

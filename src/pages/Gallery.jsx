@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Transition from '../components/Transition';
 
 const images = [
@@ -40,8 +41,8 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" }
   }
@@ -66,16 +67,24 @@ export default function Gallery() {
       transition={{ duration: 0.8, ease: "easeInOut" }}
       className="w-full bg-neutral-900"
     >
+      <Helmet>
+        <title>Gallery & Masterpieces | National Bardo Museum</title>
+        <meta 
+          name="description" 
+          content="Browse the world's largest collection of mosaics and the 101 Masterpieces of the Bardo Museum, featuring Virgil, Seignor Julius, and more." 
+        />
+      </Helmet>
+
       <Transition />
 
       <div ref={containerRef} className="relative h-[150vh] bg-neutral-900 overflow-hidden">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
-          <div className="grid grid-cols-4 gap-2 h-[120%] -mt-[10%]"> 
+          <div className="grid grid-cols-4 gap-2 h-[120%] -mt-[10%]">
             {images.map((image, index) => (
               <div key={image.id} className="relative h-full w-full overflow-hidden">
-                <motion.div 
+                <motion.div
                   style={{ y: index % 2 === 0 ? y1 : y2 }}
-                  className="absolute inset-0 w-full h-[140%]" // Taller than container to allow movement
+                  className="absolute inset-0 w-full h-[140%]"
                 >
                   <img
                     src={image.src}
@@ -86,32 +95,33 @@ export default function Gallery() {
               </div>
             ))}
           </div>
-          
+
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90 pointer-events-none" />
-          
+
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             <h1 className="text-5xl md:text-8xl font-serif text-white tracking-widest uppercase mix-blend-overlay opacity-90">
-                The Bardo
-             </h1>
+            <h1 className="text-5xl md:text-8xl font-serif text-white tracking-widest uppercase mix-blend-overlay opacity-90">
+              The Bardo
+            </h1>
           </div>
         </div>
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-        <h1 className="text-3xl font-bold  font-serif text-center text-white m-4">
-          The Tunisia Museum
-        </h1>
-        <div className="w-24 h-1 bg-amber-600 mx-auto mb-5" />
-        <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-200 max-w-3xl mx-auto text-center p-5">
-          The Bardo Museum, housed in a 19th‑century Beylic palace, showcases Tunisia’s history from Prehistory to modern times. It holds the world’s largest mosaic collection, treasures from Punic, Roman, and Christian eras, and artifacts from a shipwreck off Mahdia. UNESCO‑listed sites like Carthage, Dougga, El Djem, and the Arab Medinas are represented, alongside testimonies of regional creativity dating back 40,000 years.
-        </p>
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-3xl font-bold  font-serif text-center text-white m-4">
+            The Tunisia Museum
+          </h1>
+          <div className="w-24 h-1 bg-amber-600 mx-auto mb-5" />
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-200 max-w-3xl mx-auto text-center p-5">
+            The Bardo Museum, housed in a 19th‑century Beylic palace, showcases Tunisia’s history from Prehistory to modern times. It holds the world’s largest mosaic collection, treasures from Punic, Roman, and Christian eras, and artifacts from a shipwreck off Mahdia. UNESCO‑listed sites like Carthage, Dougga, El Djem, and the Arab Medinas are represented, alongside testimonies of regional creativity dating back 40,000 years.
+          </p>
         </motion.div>
       </div>
 
       <section className="relative z-10 w-full bg-amber-50 py-24 px-6 md:px-20">
+
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -125,25 +135,25 @@ export default function Gallery() {
             <div className="w-24 h-1 bg-amber-600 mx-auto mb-8" />
           </motion.div>
 
-          <motion.div 
-             className="text-lg md:text-xl text-neutral-700 leading-relaxed space-y-8 text-justify"
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2, duration: 0.8 }}
+          <motion.div
+            className="text-lg md:text-xl text-neutral-700 leading-relaxed space-y-8 text-justify"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
           >
             <p>
               Since 2004, a computer-based inventory programme was initiated based
               on the “Virgil” database provided by the Museographic Development
               Division (I.N.P.). The digitization of the glass-plate negatives
-              collection—the main proof of the museum’s history and the state of 
+              collection—the main proof of the museum’s history and the state of
               Tunisia’s cultural sites—is nearing completion.
             </p>
             <p>
-              Between 2009 and 2014, a historic partnership with the Louvre Museum 
-              focused on the restoration and presentation of the Bardo's Roman 
-              sculptures. This agreement laid the groundwork for cultural exchange 
-              and exhibitions like "Memory à la carte" and "Amber Magic," celebrating 
+              Between 2009 and 2014, a historic partnership with the Louvre Museum
+              focused on the restoration and presentation of the Bardo's Roman
+              sculptures. This agreement laid the groundwork for cultural exchange
+              and exhibitions like "Memory à la carte" and "Amber Magic," celebrating
               the museum's 120th anniversary.
             </p>
           </motion.div>

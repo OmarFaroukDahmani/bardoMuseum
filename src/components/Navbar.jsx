@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
@@ -54,21 +53,21 @@ export default function Navbar() {
         className="absolute top-4 left-4 right-4 z-50 w-[70vw] m-auto flex justify-between items-center p-5 rounded-xl shadow-lg
                    bg-white/30 backdrop-blur-lg border border-white/20"
       >
-        <Link to="/" className="text-lg font-bold text-gray-500">
+        <a href="/" className="text-lg font-bold text-gray-500">
           The National <span className='text-gray-900'>Bardo</span> Museum
-        </Link>
+        </a>
 
         <div className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.title}
-              to={link.to}
+              href={link.to}
               className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-700
                          hover:bg-white/50 hover:text-black transition-colors"
             >
               {link.icon}
               <span>{link.title}</span>
-            </Link>
+            </a>
           ))}
         </div>
 

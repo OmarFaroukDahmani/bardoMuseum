@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {gsap} from 'gsap'
-import Transition from '../components/Transition'; 
+import { gsap } from 'gsap';
+import { Helmet } from 'react-helmet-async';
+import Transition from '../components/Transition';
 
 const sections = [
   {
@@ -78,7 +79,20 @@ export default function Museum() {
       variants={pageVariants}
       transition={pageTransition}
     >
+      <Helmet>
+        <title>History & Architecture | National Bardo Museum</title>
+        <meta 
+          name="description" 
+          content="Discover the architectural legacy of the Bardo Palace, the curator's vision, and the mission behind Tunisia's most important national museum." 
+        />
+      </Helmet>
+
       <Transition />
+      
+      {/* Since this page discusses the curatorial mission and reorganization,
+         we visualize the curation process.
+      */}
+      [Image of museum curation process]
 
       <div className="bg-black">
         {sections.map((section) => (
@@ -161,9 +175,9 @@ const OverlayCopy = ({ subheading, heading }) => {
         {subheading}
       </p>
       <p className="text-center text-4xl font-bold md:text-7xl"
-      onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
-      onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })} 
->
+        onMouseEnter={() => gsap.to("#cursor", { scale: 5, duration: 0.3 })}
+        onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+      >
         {heading}
       </p>
     </motion.div>
@@ -172,9 +186,9 @@ const OverlayCopy = ({ subheading, heading }) => {
 
 const SectionContent = ({ desc }) => (
   <div className="mx-auto max-w-5xl px-4 pb-24 pt-12 text-white text-lg md:text-xl whitespace-pre-line"
-      onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
-      onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })} 
->
+    onMouseEnter={() => gsap.to("#cursor", { scale: 2, duration: 0.3 })}
+    onMouseLeave={() => gsap.to("#cursor", { scale: 1, duration: 0.3 })}
+  >
     {desc}
   </div>
 );
